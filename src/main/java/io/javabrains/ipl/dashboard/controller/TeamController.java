@@ -4,12 +4,14 @@ import io.javabrains.ipl.dashboard.model.Match;
 import io.javabrains.ipl.dashboard.model.Team;
 import io.javabrains.ipl.dashboard.repository.MatchRepository;
 import io.javabrains.ipl.dashboard.repository.TeamRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class TeamController {
 
