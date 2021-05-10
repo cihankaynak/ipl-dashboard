@@ -1,5 +1,6 @@
 package io.javabrains.ipl.dashboard.controller;
 
+import io.javabrains.ipl.dashboard.exception.TeamNotFoundException;
 import io.javabrains.ipl.dashboard.model.Match;
 import io.javabrains.ipl.dashboard.model.Team;
 import io.javabrains.ipl.dashboard.repository.MatchRepository;
@@ -27,6 +28,9 @@ public class TeamController {
   @GetMapping("/team/{name}")
   public Team getTeam(@PathVariable String name) {
     Team team = teamRepository.findByName(name);
+    if (team == null) {
+      throw new TeamNotFoundException();
+    }
     List<Match> matches = matchRepository.findLatestMatchesByTeam(name, 4);
     team.setMatches(matches);
     return team;
