@@ -5,11 +5,9 @@ import io.javabrains.ipl.dashboard.model.Match;
 import io.javabrains.ipl.dashboard.model.Team;
 import io.javabrains.ipl.dashboard.repository.MatchRepository;
 import io.javabrains.ipl.dashboard.repository.TeamRepository;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @CrossOrigin
@@ -34,5 +32,12 @@ public class TeamController {
     List<Match> matches = matchRepository.findLatestMatchesByTeam(name, 4);
     team.setMatches(matches);
     return team;
+  }
+
+  @GetMapping("/team/{name}/matches")
+  public List<Match> getMatchesForTeam(@PathVariable String name, @RequestParam int year) {
+    LocalDate startDate = LocalDate.of(year, 1, 1);
+    LocalDate endDate = startDate.plusYears(1);
+    return matchRepository.findByTeamBetweenDates(name, startDate, endDate);
   }
 }
