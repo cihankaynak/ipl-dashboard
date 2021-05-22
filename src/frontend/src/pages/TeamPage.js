@@ -39,6 +39,11 @@ const TeamPage = () => {
   return (
     <div className="TeamPage">
       {status && <h1>{status}</h1>}
+      <div className="home-link">
+        <h1>
+          <Link to="/">Home</Link>
+        </h1>
+      </div>
       <div className="team-name-section">
         <h1 className="team-name">{team.name}</h1>
       </div>

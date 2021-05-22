@@ -1,9 +1,14 @@
 .TeamPage {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 0.1fr 1fr 1fr 1fr;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
+
+  .home-link {
+    grid-column: span 4;
+    justify-self: start;
+  }
 
   .team-name-section {
     grid-column: span 3;
