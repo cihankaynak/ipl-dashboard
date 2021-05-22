@@ -72,7 +72,11 @@ const TeamPage = () => {
             <MatchSmallCard key={match.id} match={match} team={team.name} />
           ))}
       <div className="more-link">
-        <Link to={`/teams/${team.name}/matches/2020`}>More ></Link>
+        <Link
+          to={`/teams/${team.name}/matches/${process.env.REACT_APP_DATA_END_YEAR}`}
+        >
+          More >
+        </Link>
       </div>
     </div>
   );
