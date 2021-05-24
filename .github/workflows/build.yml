@@ -25,6 +25,8 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: '14'
+    - name: Install with Node
+      run: npm run install --prefix ./src/frontend/
     - name: Build with Node
       run: npm run build --prefix ./src/frontend/
     - name: Build with Maven
