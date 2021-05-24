@@ -10,7 +10,9 @@ const MatchPage = () => {
   const [matches, setMatches] = useState([]);
   const { teamName, year } = useParams();
   useEffect(() => {
-    fetch(`http://localhost:8080/team/${teamName}/matches?year=${year}`)
+    fetch(
+      `${process.env.REACT_APP_API_BASE_URL}/team/${teamName}/matches?year=${year}`
+    )
       .then((response) => {
         if (!response.ok) {
           throw Error(response.statusText);

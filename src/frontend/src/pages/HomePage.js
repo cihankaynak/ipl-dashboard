@@ -5,7 +5,7 @@ import "./HomePage.scss";
 const HomePage = () => {
   const [teams, setTeams] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:8080/team")
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/team`)
       .then((response) => response.json())
       .then((teams) => setTeams(teams));
   }, []);
@@ -15,7 +15,7 @@ const HomePage = () => {
       <h1 className="title">IPL Dashboard based on Java Brains Tutorial</h1>
       <div className="team-card">
         {teams.map((team) => (
-          <TeamCard teamName={team.name} />
+          <TeamCard key={team.id} teamName={team.name} />
         ))}
       </div>
     </div>

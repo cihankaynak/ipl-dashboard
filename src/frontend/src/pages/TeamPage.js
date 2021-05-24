@@ -20,7 +20,7 @@ const TeamPage = () => {
 
   useEffect(() => {
     const fetchMatches = () => {
-      fetch(`http://localhost:8080/team/${teamName}`)
+      fetch(`${process.env.REACT_APP_API_BASE_URL}/team/${teamName}`)
         .then((response) => {
           if (!response.ok) {
             throw Error(response.statusText);
