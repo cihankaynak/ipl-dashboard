@@ -33,4 +33,4 @@ jobs:
       run: npm run build
     - name: Build with Maven
       working-directory: ./
-      run: mvn -B package --file pom.xml
+      run: mvn clean install
