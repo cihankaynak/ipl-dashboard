@@ -47,7 +47,7 @@ jobs:
         application_name: ipl-dashboard
         environment_name: Ipldashboard-env
         region: us-east-2
-        version: ${{ GITHUB_RUN_ID }}
+        version: ${GITHUB_RUN_ID}
         deployment_package: target/ipl-dashboard-0.0.1-SNAPSHOT.jar
       
       
