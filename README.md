@@ -1,8 +1,9 @@
 ###### IPL Dashboard
-React app with Spring Boot backend that shows team and match information based on IPL data from Kaggle.
+React app with Spring Boot backend that shows team and match information based on IPL data from Kaggle. 
+
 It is deployed to AWS Elastic Beanstalk by GitHub actions.
 
-###### App: 
+###### App 
 http://ipldashboard-env.eba-i8wundhv.us-east-2.elasticbeanstalk.com/#/
 
 ###### Credits
