@@ -39,5 +39,15 @@ jobs:
       with:
        name: ipl-dashboard
        path: target/*.jar
+    - name: Deploy to EB
+      uses: einaregilsson/beanstalk-deploy@v16
+      with:
+        aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        application_name: ipl-dashboard
+        environment_name: Ipldashboard-env
+        version_label: 0.0.1-SNAPSHOT
+        region: us-east-2
+        deployment_package: target/ipl-dashboard-0.0.1-SNAPSHOT.jar
       
       
